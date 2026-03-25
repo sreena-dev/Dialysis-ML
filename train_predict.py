@@ -171,7 +171,7 @@ def train_model(
 # Feature importance extraction
 # ---------------------------------------------------------------------------
 
-def _extract_feature_importances(model) -> pd.DataFrame:
+def _extract_feature_importances(model) -> pd.DataFrame | None:
     """
     Extract and format feature importance from a trained YDF model.
 
