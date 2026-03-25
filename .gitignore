@@ -83,6 +83,9 @@ ipython_config.py
 ehthumbs.db
 Thumbs.db
 
+paper_vars.csv
+uf_rf_model.joblib
+
 # Data files (uncomment to ignore)
 # *.csv
 # *.xlsx
