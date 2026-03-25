@@ -278,7 +278,7 @@ def load_and_clean(csv_path: str = "raw_data.csv") -> pd.DataFrame:
     # If either is NaN, pandas produces NaN and downstream math breaks.
     weight_cols = ["Pre_Dialysis_Weight", "Dry_Weight"]
     missing_weight_mask = df[weight_cols].isna().any(axis=1)
-    n_dropped_weight = missing_weight_mask.sum()
+    n_dropped_weight = int(np.sum(missing_weight_mask))
     if n_dropped_weight > 0:
         logger.warning(
             "Dropping %d rows with missing Pre_Dialysis_Weight or Dry_Weight.",
@@ -288,7 +288,8 @@ def load_and_clean(csv_path: str = "raw_data.csv") -> pd.DataFrame:
 
     # ---- Step 6: Drop rows with missing Target UF ----
     if "Target_UF" in df.columns:
-        missing_target = df["Target_UF"].isna()
+        missing_target = pd.isna(df["Target_UF"])
+        # missing_target = df["Target_UF"].isna() #ignore : 
         n_dropped_target = missing_target.sum()
         if n_dropped_target > 0:
             logger.warning(
@@ -317,8 +318,8 @@ def load_and_clean(csv_path: str = "raw_data.csv") -> pd.DataFrame:
     valid_weight_diff = (df["Weight_Difference"] >= -5.0) & (df["Weight_Difference"] <= 15.0)
     
     # 2. Filter impossible vitals (if present)
-    valid_sbp = df["Pre_Dialysis_SBP"].isna() | ((df["Pre_Dialysis_SBP"] >= 50) & (df["Pre_Dialysis_SBP"] <= 250))
-    valid_hr = df["Pre_Dialysis_Heart_Rate"].isna() | ((df["Pre_Dialysis_Heart_Rate"] >= 30) & (df["Pre_Dialysis_Heart_Rate"] <= 200))
+    valid_sbp = pd.isna(df["Pre_Dialysis_SBP"]) | ((df["Pre_Dialysis_SBP"] >= 50) & (df["Pre_Dialysis_SBP"] <= 250))
+    valid_hr = pd.isna(df["Pre_Dialysis_Heart_Rate"]) | ((df["Pre_Dialysis_Heart_Rate"] >= 30) & (df["Pre_Dialysis_Heart_Rate"] <= 200))
 
     # 3. Filter extreme calculated deviations
     # A deviation > 4L means the clinician ordered a UF 4 Liters away from the 
@@ -350,7 +351,7 @@ def load_and_clean(csv_path: str = "raw_data.csv") -> pd.DataFrame:
         df["UF_Deviation"].min(),
         df["UF_Deviation"].max(),
     )
-
+    assert isinstance(df, pd.DataFrame)
     return df
 
 
