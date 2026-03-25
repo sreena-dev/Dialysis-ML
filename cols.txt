@@ -1,0 +1,84 @@
+Timestamp
+Name
+Age/Sex
+Date
+UHID No.
+OPD/IPD
+Mode of Arrival
+Treatment Mode
+Consent
+Last Dialysis Done On
+Patient Serology Status
+Dry Weight (kg)
+Weight Gain (kg)
+Target UF (kg)
+Pre Dialysis Weight (kg)
+Post Dialysis Weight (kg)
+Heparin Bolus (IU)
+Heparin Infusion (IU/hr)
+Total Heparin (IU)
+Others
+Machine ID/No.
+Machine Test
+Conductivity
+Billing Details
+Dialyzer No.
+Dialyzer: New / Reuse 1-5
+Dialysate Temp
+Dialyzer Checked by (Name)
+Dialyzer Verified by (Name)
+Dialysate (mmol/L)
+Na+
+Dialysate Flow (ml/min)
+Total Duration of Treatment
+Access
+Time of Start
+Started by
+Time of Closing
+Closed by
+Level of Consciousness
+BP (mmHg)
+HR (min)
+SpO2 (%)
+Temp (°F)
+Blood Flow (ml/min)
+Dialysate Flow (ml/min) 2
+Fluid Removed
+Pain Score
+Level of Consciousness 2
+Psychological Assessment
+Ability to Perform ADLs
+Nutritional Assessment
+Any Blood Product Transfused? 
+Volume of Transfusion
+Site Status
+Vascular Access Dressing
+Time
+Given by
+Taken by
+S.No.
+Medication
+Dose
+Route
+Time 2
+Nurse Signature
+Doctor Signature
+Reaction (if any)
+Please upload your medical report or any relevant documents.
+HBsAg [+/-]
+HCV [+/-]
+HIV [+/-]
+Blood Flow (ml/min) 2
+K+
+Ca++
+Bicarb
+Blood Group
+YES
+QRON
+100 MG
+I.V
+Unnamed: 82
+Unnamed: 83
+Unnamed: 84
+Unnamed: 85
+Unnamed: 86
