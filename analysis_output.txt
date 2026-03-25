@@ -1,0 +1,990 @@
+================================================================================
+HEMODIALYSIS TREATMENT DATA - EXPLORATORY DATA ANALYSIS
+================================================================================
+
+Dataset Shape: 6607 rows x 87 columns
+
+================================================================================
+COLUMN LISTING
+================================================================================
+  [ 0] Timestamp  |  dtype: object  |  non-null: 5344/6607  |  unique: 5022
+  [ 1] HUKUM CHAND  |  dtype: object  |  non-null: 5344/6607  |  unique: 139
+  [ 2] Age/Sex  |  dtype: object  |  non-null: 5344/6607  |  unique: 86
+  [ 3] Date  |  dtype: object  |  non-null: 5344/6607  |  unique: 402
+  [ 4] UHID No.  |  dtype: float64  |  non-null: 5344/6607  |  unique: 150
+  [ 5] OPD/IPD  |  dtype: object  |  non-null: 5344/6607  |  unique: 1
+  [ 6] Mode of Arrival  |  dtype: object  |  non-null: 5344/6607  |  unique: 5
+  [ 7] 2. Treatment Mode  |  dtype: object  |  non-null: 5344/6607  |  unique: 2
+  [ 8] Consent  |  dtype: object  |  non-null: 5344/6607  |  unique: 2
+  [ 9] Last Dialysis Done On  |  dtype: object  |  non-null: 5295/6607  |  unique: 393
+  [10] Patient Serology Status  |  dtype: object  |  non-null: 2/6607  |  unique: 1
+  [11] Dry Weight (kg)  |  dtype: object  |  non-null: 5265/6607  |  unique: 681
+  [12] Weight Gain (kg)  |  dtype: object  |  non-null: 5264/6607  |  unique: 76
+  [13] Target UF (kg)  |  dtype: object  |  non-null: 5266/6607  |  unique: 59
+  [14] Pre Dialysis Weight (kg)  |  dtype: object  |  non-null: 5265/6607  |  unique: 744
+  [15] Post Dialysis Weight (kg)  |  dtype: object  |  non-null: 5265/6607  |  unique: 730
+  [16] Heparin Bolus (IU)  |  dtype: float64  |  non-null: 5344/6607  |  unique: 4
+  [17] Heparin Infusion (IU/hr)  |  dtype: float64  |  non-null: 5344/6607  |  unique: 6
+  [18] Total Heparin (IU)  |  dtype: float64  |  non-null: 5344/6607  |  unique: 4
+  [19] - Others  |  dtype: object  |  non-null: 5305/6607  |  unique: 7
+  [20] Machine ID/No.  |  dtype: object  |  non-null: 5180/6607  |  unique: 67
+  [21] Machine Test  |  dtype: object  |  non-null: 5344/6607  |  unique: 6
+  [22] Conductivity  |  dtype: float64  |  non-null: 5344/6607  |  unique: 11
+  [23] Billing Details  |  dtype: object  |  non-null: 5344/6607  |  unique: 9
+  [24] Dialyzer No.  |  dtype: float64  |  non-null: 5345/6607  |  unique: 40
+  [25] Dialyzer: New / Reuse 1-5  |  dtype: object  |  non-null: 5152/6607  |  unique: 45
+  [26] Dialysate Temp  |  dtype: object  |  non-null: 5344/6607  |  unique: 7
+  [27] Dialyzer Checked by (Name)  |  dtype: object  |  non-null: 5341/6607  |  unique: 92
+  [28] Dialyzer Verified by (Name)  |  dtype: object  |  non-null: 5341/6607  |  unique: 74
+  [29] Dialysate (mmol/L)  |  dtype: object  |  non-null: 5346/6607  |  unique: 1
+  [30] Na+  |  dtype: float64  |  non-null: 5346/6607  |  unique: 1
+  [31] Dialysate Flow (ml/min)  |  dtype: float64  |  non-null: 5346/6607  |  unique: 1
+  [32] Total Duration of Treatment  |  dtype: object  |  non-null: 5345/6607  |  unique: 39
+  [33] Access  |  dtype: object  |  non-null: 5345/6607  |  unique: 42
+  [34] Time of Start  |  dtype: object  |  non-null: 5181/6607  |  unique: 228
+  [35] Started by  |  dtype: object  |  non-null: 5342/6607  |  unique: 65
+  [36] Time of Closing  |  dtype: object  |  non-null: 5181/6607  |  unique: 241
+  [37] Closed by  |  dtype: object  |  non-null: 5342/6607  |  unique: 72
+  [38] Column 39  |  dtype: float64  |  non-null: 0/6607  |  unique: 0
+  [39] Level of Consciousness  |  dtype: object  |  non-null: 5346/6607  |  unique: 1
+  [40] BP (mmHg)  |  dtype: object  |  non-null: 5268/6607  |  unique: 1681
+  [41] HR (min)  |  dtype: float64  |  non-null: 5268/6607  |  unique: 76
+  [42] SpO2 (%)  |  dtype: float64  |  non-null: 5268/6607  |  unique: 36
+  [43] Temp (°F)  |  dtype: object  |  non-null: 5268/6607  |  unique: 68
+  [44] Blood Flow (ml/min)  |  dtype: float64  |  non-null: 0/6607  |  unique: 0
+  [45] Column 82  |  dtype: float64  |  non-null: 0/6607  |  unique: 0
+  [46] Dialysate Flow (ml/min) 2  |  dtype: float64  |  non-null: 0/6607  |  unique: 0
+  [47] Fluid Removed  |  dtype: object  |  non-null: 5217/6607  |  unique: 69
+  [48] Pain Score  |  dtype: object  |  non-null: 5344/6607  |  unique: 51
+  [49] Level of Consciousness 2  |  dtype: object  |  non-null: 5344/6607  |  unique: 2
+  [50] Psychological Assessment  |  dtype: object  |  non-null: 4/6607  |  unique: 2
+  [51] Ability to Perform ADLs  |  dtype: object  |  non-null: 5344/6607  |  unique: 5
+  [52] Nutritional Assessment  |  dtype: object  |  non-null: 5344/6607  |  unique: 3
+  [53] Any Blood Product Transfused?   |  dtype: object  |  non-null: 5344/6607  |  unique: 2
+  [54] Volume of Transfusion  |  dtype: object  |  non-null: 5343/6607  |  unique: 9
+  [55] Site Status  |  dtype: float64  |  non-null: 0/6607  |  unique: 0
+  [56] Vascular Access Dressing  |  dtype: object  |  non-null: 5344/6607  |  unique: 1
+  [57] Time  |  dtype: object  |  non-null: 5344/6607  |  unique: 27
+  [58] Given by  |  dtype: object  |  non-null: 5344/6607  |  unique: 31
+  [59] Taken by  |  dtype: object  |  non-null: 5344/6607  |  unique: 34
+  [60] S.No.  |  dtype: float64  |  non-null: 2475/6607  |  unique: 3
+  [61] Medication  |  dtype: object  |  non-null: 2468/6607  |  unique: 173
+  [62] Dose  |  dtype: object  |  non-null: 2468/6607  |  unique: 85
+  [63] Route  |  dtype: object  |  non-null: 2467/6607  |  unique: 12
+  [64] Time 2  |  dtype: object  |  non-null: 2468/6607  |  unique: 339
+  [65] Nurse Signature  |  dtype: object  |  non-null: 2467/6607  |  unique: 49
+  [66] Doctor Signature  |  dtype: object  |  non-null: 2653/6607  |  unique: 8
+  [67] Reaction (if any)  |  dtype: object  |  non-null: 2653/6607  |  unique: 2
+  [68] Column 67  |  dtype: object  |  non-null: 5243/6607  |  unique: 2
+  [69] Please upload your medical report or any relevant documents.  |  dtype: object  |  non-null: 5091/6607  |  unique: 4729
+  [70] HBsAg [+/-]  |  dtype: object  |  non-null: 5343/6607  |  unique: 2
+  [71] HCV [+/-]  |  dtype: object  |  non-null: 5343/6607  |  unique: 3
+  [72] HIV [+/-]  |  dtype: object  |  non-null: 5343/6607  |  unique: 3
+  [73] Blood Flow (ml/min) 2  |  dtype: object  |  non-null: 5289/6607  |  unique: 39
+  [74] K+  |  dtype: float64  |  non-null: 5343/6607  |  unique: 1
+  [75] Ca++  |  dtype: float64  |  non-null: 5342/6607  |  unique: 3
+  [76] Bicarb  |  dtype: float64  |  non-null: 5339/6607  |  unique: 2
+  [77] Blood Group  |  dtype: object  |  non-null: 5245/6607  |  unique: 9
+  [78] YES  |  dtype: object  |  non-null: 5325/6607  |  unique: 4
+  [79] QRON  |  dtype: object  |  non-null: 5257/6607  |  unique: 3
+  [80] 100 MG  |  dtype: object  |  non-null: 5257/6607  |  unique: 4
+  [81] I.V  |  dtype: float64  |  non-null: 0/6607  |  unique: 0
+  [82] Unnamed: 82  |  dtype: float64  |  non-null: 0/6607  |  unique: 0
+  [83] Unnamed: 83  |  dtype: float64  |  non-null: 0/6607  |  unique: 0
+  [84] Unnamed: 84  |  dtype: object  |  non-null: 1/6607  |  unique: 1
+  [85] Unnamed: 85  |  dtype: float64  |  non-null: 0/6607  |  unique: 0
+  [86] Unnamed: 86  |  dtype: object  |  non-null: 1/6607  |  unique: 1
+
+================================================================================
+FIRST 5 ROWS (first 20 columns)
+================================================================================
+                    Timestamp        HUKUM CHAND Age/Sex                 Date    UHID No. OPD/IPD Mode of Arrival 2. Treatment Mode Consent Last Dialysis Done On Patient Serology Status Dry Weight (kg) Weight Gain (kg) Target UF (kg) Pre Dialysis Weight (kg) Post Dialysis Weight (kg)  Heparin Bolus (IU)  Heparin Infusion (IU/hr)  Total Heparin (IU) - Others
+0  2025-07-15 12:31:56.488000  UTTAM KUMAR BARUA    66/M  2025-07-15 00:00:00  10103050.0     OPD       Dependent                HD   Taken   2025-07-12 00:00:00                     NaN            53.7              1.5              2                     55.2                      53.2              2000.0                    1000.0              5000.0      NaN
+1  2025-07-15 12:41:26.822000        ASHOK SETHI    61/M  2025-07-15 00:00:00  10118105.0     OPD            Self                HD   Taken   2025-07-11 00:00:00                     NaN              48              1.3            2.2                     49.4                      48.5              2000.0                    1000.0              5000.0      NaN
+2  2025-07-15 12:57:38.534000  ANIL KUMAR SHARMA    52/M  2025-07-15 00:00:00  10012694.0     OPD            Self                HD   Taken   2025-07-12 00:00:00                     NaN           110.2              2.7            3.7                    114.6                     111.9              2000.0                    1000.0              5000.0      NOT
+3  2025-07-15 13:13:07.636000         BIMLA DEVI    58/F  2025-07-15 00:00:00  10093437.0     OPD       Dependent                HD   Taken   2025-07-13 00:00:00                     NaN            51.9              0.4              2                     53.7                      52.4              2000.0                    1000.0              5000.0     NOT 
+4  2025-07-15 13:44:59.654000             JAGPAL    42/M  2025-07-15 00:00:00  10029064.0     OPD            Self                HD   Taken   2025-07-13 00:00:00                     NaN              76              2.2            2.5                     76.8                      74.8              2000.0                    1000.0              5000.0      NOT
+
+================================================================================
+MISSING VALUES SUMMARY
+================================================================================
+  Timestamp: 1263 missing (19.12%)
+  HUKUM CHAND: 1263 missing (19.12%)
+  Age/Sex: 1263 missing (19.12%)
+  Date: 1263 missing (19.12%)
+  UHID No.: 1263 missing (19.12%)
+  OPD/IPD: 1263 missing (19.12%)
+  Mode of Arrival: 1263 missing (19.12%)
+  2. Treatment Mode: 1263 missing (19.12%)
+  Consent: 1263 missing (19.12%)
+  Last Dialysis Done On: 1312 missing (19.86%)
+  Patient Serology Status: 6605 missing (99.97%)
+  Dry Weight (kg): 1342 missing (20.31%)
+  Weight Gain (kg): 1343 missing (20.33%)
+  Target UF (kg): 1341 missing (20.3%)
+  Pre Dialysis Weight (kg): 1342 missing (20.31%)
+  Post Dialysis Weight (kg): 1342 missing (20.31%)
+  Heparin Bolus (IU): 1263 missing (19.12%)
+  Heparin Infusion (IU/hr): 1263 missing (19.12%)
+  Total Heparin (IU): 1263 missing (19.12%)
+  - Others: 1302 missing (19.71%)
+  Machine ID/No.: 1427 missing (21.6%)
+  Machine Test: 1263 missing (19.12%)
+  Conductivity: 1263 missing (19.12%)
+  Billing Details: 1263 missing (19.12%)
+  Dialyzer No.: 1262 missing (19.1%)
+  Dialyzer: New / Reuse 1-5: 1455 missing (22.02%)
+  Dialysate Temp: 1263 missing (19.12%)
+  Dialyzer Checked by (Name): 1266 missing (19.16%)
+  Dialyzer Verified by (Name): 1266 missing (19.16%)
+  Dialysate (mmol/L): 1261 missing (19.09%)
+  Na+: 1261 missing (19.09%)
+  Dialysate Flow (ml/min): 1261 missing (19.09%)
+  Total Duration of Treatment: 1262 missing (19.1%)
+  Access: 1262 missing (19.1%)
+  Time of Start: 1426 missing (21.58%)
+  Started by: 1265 missing (19.15%)
+  Time of Closing: 1426 missing (21.58%)
+  Closed by: 1265 missing (19.15%)
+  Column 39: 6607 missing (100.0%)
+  Level of Consciousness: 1261 missing (19.09%)
+  BP (mmHg): 1339 missing (20.27%)
+  HR (min): 1339 missing (20.27%)
+  SpO2 (%): 1339 missing (20.27%)
+  Temp (°F): 1339 missing (20.27%)
+  Blood Flow (ml/min): 6607 missing (100.0%)
+  Column 82: 6607 missing (100.0%)
+  Dialysate Flow (ml/min) 2: 6607 missing (100.0%)
+  Fluid Removed: 1390 missing (21.04%)
+  Pain Score: 1263 missing (19.12%)
+  Level of Consciousness 2: 1263 missing (19.12%)
+  Psychological Assessment: 6603 missing (99.94%)
+  Ability to Perform ADLs: 1263 missing (19.12%)
+  Nutritional Assessment: 1263 missing (19.12%)
+  Any Blood Product Transfused? : 1263 missing (19.12%)
+  Volume of Transfusion: 1264 missing (19.13%)
+  Site Status: 6607 missing (100.0%)
+  Vascular Access Dressing: 1263 missing (19.12%)
+  Time: 1263 missing (19.12%)
+  Given by: 1263 missing (19.12%)
+  Taken by: 1263 missing (19.12%)
+  S.No.: 4132 missing (62.54%)
+  Medication: 4139 missing (62.65%)
+  Dose: 4139 missing (62.65%)
+  Route: 4140 missing (62.66%)
+  Time 2: 4139 missing (62.65%)
+  Nurse Signature: 4140 missing (62.66%)
+  Doctor Signature: 3954 missing (59.85%)
+  Reaction (if any): 3954 missing (59.85%)
+  Column 67: 1364 missing (20.64%)
+  Please upload your medical report or any relevant documents.: 1516 missing (22.95%)
+  HBsAg [+/-]: 1264 missing (19.13%)
+  HCV [+/-]: 1264 missing (19.13%)
+  HIV [+/-]: 1264 missing (19.13%)
+  Blood Flow (ml/min) 2: 1318 missing (19.95%)
+  K+: 1264 missing (19.13%)
+  Ca++: 1265 missing (19.15%)
+  Bicarb: 1268 missing (19.19%)
+  Blood Group: 1362 missing (20.61%)
+  YES: 1282 missing (19.4%)
+  QRON: 1350 missing (20.43%)
+  100 MG: 1350 missing (20.43%)
+  I.V: 6607 missing (100.0%)
+  Unnamed: 82: 6607 missing (100.0%)
+  Unnamed: 83: 6607 missing (100.0%)
+  Unnamed: 84: 6606 missing (99.98%)
+  Unnamed: 85: 6607 missing (100.0%)
+  Unnamed: 86: 6606 missing (99.98%)
+
+Total missing cells: 204286 out of 574809 (35.54%)
+
+================================================================================
+NUMERIC COLUMNS - STATISTICS
+================================================================================
+
+--- UHID No. ---
+  Count: 5344
+  Mean: 10093775.58
+  Std: 2148077.72
+  Min: 1000350.0
+  25%: 10002008.0
+  50% (Median): 10042914.0
+  75%: 10083785.0
+  Max: 101192495.0
+
+--- Heparin Bolus (IU) ---
+  Count: 5344
+  Mean: 2005.54
+  Std: 351.10
+  Min: 200.0
+  25%: 2000.0
+  50% (Median): 2000.0
+  75%: 2000.0
+  Max: 20001.0
+
+--- Heparin Infusion (IU/hr) ---
+  Count: 5344
+  Mean: 1008.48
+  Std: 277.82
+  Min: 100.0
+  25%: 1000.0
+  50% (Median): 1000.0
+  75%: 1000.0
+  Max: 10005.0
+
+--- Total Heparin (IU) ---
+  Count: 5344
+  Mean: 5004.21
+  Std: 628.81
+  Min: 500.0
+  25%: 5000.0
+  50% (Median): 5000.0
+  75%: 5000.0
+  Max: 50000.0
+
+--- Conductivity ---
+  Count: 5344
+  Mean: 14.53
+  Std: 68.28
+  Min: 1.3
+  25%: 13.5
+  50% (Median): 13.5
+  75%: 13.5
+  Max: 5000.0
+
+--- Dialyzer No. ---
+  Count: 5345
+  Mean: 1.36
+  Std: 0.08
+  Min: 0.160000000000017
+  25%: 1.3
+  50% (Median): 1.4
+  75%: 1.4
+  Max: 1.4
+
+--- Na+ ---
+  Count: 5346
+  Mean: 135.00
+  Std: 0.00
+  Min: 135.0
+  25%: 135.0
+  50% (Median): 135.0
+  75%: 135.0
+  Max: 135.0
+
+--- Dialysate Flow (ml/min) ---
+  Count: 5346
+  Mean: 500.00
+  Std: 0.00
+  Min: 500.0
+  25%: 500.0
+  50% (Median): 500.0
+  75%: 500.0
+  Max: 500.0
+
+--- HR (min) ---
+  Count: 5268
+  Mean: 77.55
+  Std: 20.01
+  Min: 1.5
+  25%: 74.0
+  50% (Median): 78.0
+  75%: 78.0
+  Max: 788.0
+
+--- SpO2 (%) ---
+  Count: 5268
+  Mean: 97.72
+  Std: 3.15
+  Min: 2.0
+  25%: 97.0
+  50% (Median): 98.0
+  75%: 99.0
+  Max: 100.0
+
+--- S.No. ---
+  Count: 2475
+  Mean: 1.01
+  Std: 0.53
+  Min: 1.0
+  25%: 1.0
+  50% (Median): 1.0
+  75%: 1.0
+  Max: 21.0
+
+--- K+ ---
+  Count: 5343
+  Mean: 2.00
+  Std: 0.00
+  Min: 2.0
+  25%: 2.0
+  50% (Median): 2.0
+  75%: 2.0
+  Max: 2.0
+
+--- Ca++ ---
+  Count: 5342
+  Mean: 2.00
+  Std: 0.25
+  Min: 0.0
+  25%: 2.0
+  50% (Median): 2.0
+  75%: 2.0
+  Max: 20.0
+
+--- Bicarb ---
+  Count: 5339
+  Mean: 0.01
+  Std: 0.17
+  Min: 0.0
+  25%: 0.0
+  50% (Median): 0.0
+  75%: 0.0
+  Max: 2.0
+
+================================================================================
+CATEGORICAL COLUMNS - VALUE COUNTS
+================================================================================
+
+--- Timestamp ---
+  2025-09-12 16:46:14: 3 (0.0%)
+  2025-12-17 16:33:32: 3 (0.0%)
+  2025-11-17 16:33:32: 3 (0.0%)
+  2025-11-18 16:33:32: 3 (0.0%)
+  2025-11-19 16:33:32: 3 (0.0%)
+  2025-11-20 16:33:32: 3 (0.0%)
+  2025-11-21 16:33:32: 3 (0.0%)
+  2025-11-22 16:33:32: 3 (0.0%)
+  2025-11-23 16:33:32: 3 (0.0%)
+  2025-11-24 16:33:32: 3 (0.0%)
+  ... and 5012 more unique values
+
+--- HUKUM CHAND ---
+  SUNDER SINGH: 212 (3.2%)
+  SUNITA  NAGAR: 144 (2.2%)
+  BIJENDER GOEL: 131 (2.0%)
+  HUKUM CHAND: 117 (1.8%)
+  ARTI BAHADUR: 112 (1.7%)
+  SANTOSH GUPTA: 109 (1.6%)
+  DAYA RAM: 106 (1.6%)
+  JAGPAL: 102 (1.5%)
+  PARVEEN: 99 (1.5%)
+  SAHID KHAN: 82 (1.2%)
+  ... and 129 more unique values
+
+--- Age/Sex ---
+  53/M: 244 (3.7%)
+  55/M: 235 (3.6%)
+  47/M: 220 (3.3%)
+  51/M: 196 (3.0%)
+  52/M: 184 (2.8%)
+  61/M: 179 (2.7%)
+  68/F: 163 (2.5%)
+  46/M: 160 (2.4%)
+  65/M: 150 (2.3%)
+  67/M: 146 (2.2%)
+  ... and 76 more unique values
+
+--- Date ---
+  2025-08-04 00:00:00: 48 (0.7%)
+  2025-07-19 00:00:00: 43 (0.7%)
+  2025-07-15 00:00:00: 37 (0.6%)
+  2025-07-21 00:00:00: 36 (0.5%)
+  2025-07-26 00:00:00: 36 (0.5%)
+  2025-07-16 00:00:00: 35 (0.5%)
+  2025-05-12 00:00:00: 35 (0.5%)
+  2025-08-12 00:00:00: 34 (0.5%)
+  2025-08-01 00:00:00: 34 (0.5%)
+  2025-07-11 00:00:00: 33 (0.5%)
+  ... and 392 more unique values
+
+--- OPD/IPD ---
+  OPD: 5344 (80.9%)
+
+--- Mode of Arrival ---
+  Self: 3689 (55.8%)
+  Dependent: 1288 (19.5%)
+  SELF: 205 (3.1%)
+  Self with Minimal Support: 93 (1.4%)
+  WHEELCHAIR: 69 (1.0%)
+
+--- 2. Treatment Mode ---
+  HD: 5150 (77.9%)
+  HDF: 194 (2.9%)
+
+--- Consent ---
+  Taken: 5343 (80.9%)
+  Not Taken: 1 (0.0%)
+
+--- Last Dialysis Done On ---
+  2025-07-23 00:00:00: 38 (0.6%)
+  2025-07-11 00:00:00: 37 (0.6%)
+  2025-07-22 00:00:00: 35 (0.5%)
+  2025-07-30 00:00:00: 35 (0.5%)
+  2025-07-14 00:00:00: 34 (0.5%)
+  2025-08-01 00:00:00: 34 (0.5%)
+  2025-07-25 00:00:00: 34 (0.5%)
+  2025-07-26 00:00:00: 33 (0.5%)
+  2025-08-12 00:00:00: 33 (0.5%)
+  2025-07-01 00:00:00: 33 (0.5%)
+  ... and 383 more unique values
+
+--- Patient Serology Status ---
+                                                                                                                                                                                                                                                                                                                                                                                                                        : 2 (0.0%)
+
+--- Dry Weight (kg) ---
+  49.5: 69 (1.0%)
+  54: 60 (0.9%)
+  53: 57 (0.9%)
+  57: 54 (0.8%)
+  63: 49 (0.7%)
+  49: 45 (0.7%)
+  62: 45 (0.7%)
+  71.5: 45 (0.7%)
+  58: 44 (0.7%)
+  55: 43 (0.7%)
+  ... and 671 more unique values
+
+--- Weight Gain (kg) ---
+  3: 242 (3.7%)
+  2: 242 (3.7%)
+  2.5: 219 (3.3%)
+  2.3: 206 (3.1%)
+  2.4: 199 (3.0%)
+  2.2: 189 (2.9%)
+  2.7: 182 (2.8%)
+  2.6: 182 (2.8%)
+  2.1: 170 (2.6%)
+  1.8: 156 (2.4%)
+  ... and 66 more unique values
+
+--- Target UF (kg) ---
+  4: 689 (10.4%)
+  3.5: 658 (10.0%)
+  3: 570 (8.6%)
+  2.5: 514 (7.8%)
+  2: 418 (6.3%)
+  3.8: 268 (4.1%)
+  1.5: 245 (3.7%)
+  2.8: 189 (2.9%)
+  3.2: 178 (2.7%)
+  1: 134 (2.0%)
+  ... and 49 more unique values
+
+--- Pre Dialysis Weight (kg) ---
+  67: 37 (0.6%)
+  57: 37 (0.6%)
+  60: 35 (0.5%)
+  66: 34 (0.5%)
+  75: 33 (0.5%)
+  44: 30 (0.5%)
+  52.3: 30 (0.5%)
+  55.2: 29 (0.4%)
+  56: 29 (0.4%)
+  58: 28 (0.4%)
+  ... and 734 more unique values
+
+--- Post Dialysis Weight (kg) ---
+  50: 65 (1.0%)
+  55: 45 (0.7%)
+  72: 45 (0.7%)
+  71: 44 (0.7%)
+  52: 40 (0.6%)
+  54: 38 (0.6%)
+  64: 38 (0.6%)
+  54.5: 37 (0.6%)
+  49: 37 (0.6%)
+  53.5: 36 (0.5%)
+  ... and 720 more unique values
+
+--- - Others ---
+  NO: 5276 (79.9%)
+  NOT: 22 (0.3%)
+  NNO: 3 (0.0%)
+  NOT : 1 (0.0%)
+  7:30: 1 (0.0%)
+   NO: 1 (0.0%)
+  NON: 1 (0.0%)
+
+--- Machine ID/No. ---
+  15: 414 (6.3%)
+  16: 344 (5.2%)
+  14: 331 (5.0%)
+  4: 304 (4.6%)
+  1: 277 (4.2%)
+  7: 254 (3.8%)
+  17: 252 (3.8%)
+  3: 252 (3.8%)
+  10: 247 (3.7%)
+  9: 245 (3.7%)
+  ... and 57 more unique values
+
+--- Machine Test ---
+  PASS: 5338 (80.8%)
+  Pass: 2 (0.0%)
+  1000: 1 (0.0%)
+  PPASS: 1 (0.0%)
+  GOOD: 1 (0.0%)
+  PASSS: 1 (0.0%)
+
+--- Billing Details ---
+  TPA: 2948 (44.6%)
+  Cash: 1494 (22.6%)
+  HGOVT: 330 (5.0%)
+  CGHS: 285 (4.3%)
+  CASH: 89 (1.3%)
+  ECHS: 69 (1.0%)
+  NHPC: 49 (0.7%)
+  ECGHS: 40 (0.6%)
+  LEFT P/C: 40 (0.6%)
+
+--- Dialyzer: New / Reuse 1-5 ---
+  1: 1596 (24.2%)
+  2: 949 (14.4%)
+  3: 879 (13.3%)
+  4: 871 (13.2%)
+  5: 772 (11.7%)
+  6: 38 (0.6%)
+  NEW/1: 9 (0.1%)
+  -0.2: 1 (0.0%)
+  -1: 1 (0.0%)
+  -1.8: 1 (0.0%)
+  ... and 35 more unique values
+
+--- Dialysate Temp ---
+  36.5: 5325 (80.6%)
+  PASS: 12 (0.2%)
+  36.2: 3 (0.0%)
+  13.5: 1 (0.0%)
+  36: 1 (0.0%)
+  336.5: 1 (0.0%)
+  36.55: 1 (0.0%)
+
+--- Dialyzer Checked by (Name) ---
+  REETA: 587 (8.9%)
+  MEHAK: 464 (7.0%)
+  FIRROZ: 406 (6.1%)
+  SAHIL: 375 (5.7%)
+  VINAY: 337 (5.1%)
+  BABLI: 323 (4.9%)
+  MANISH: 276 (4.2%)
+  JYOTI: 273 (4.1%)
+  ZEESHAN: 263 (4.0%)
+  VIKESH: 257 (3.9%)
+  ... and 82 more unique values
+
+--- Dialyzer Verified by (Name) ---
+  FIRROZ: 695 (10.5%)
+  REETA: 627 (9.5%)
+  SAHIL: 504 (7.6%)
+  VINAY: 369 (5.6%)
+  SHARUKH: 355 (5.4%)
+  JYOTI: 318 (4.8%)
+  MANISH: 305 (4.6%)
+  VIKESH: 286 (4.3%)
+  RAJESH: 283 (4.3%)
+  BABLI: 273 (4.1%)
+  ... and 64 more unique values
+
+--- Dialysate (mmol/L) ---
+  Yes: 5346 (80.9%)
+
+--- Total Duration of Treatment ---
+  4 HRS: 3569 (54.0%)
+  3.5 HRS: 1658 (25.1%)
+  3 HRS: 61 (0.9%)
+  4HRS: 9 (0.1%)
+  2 HRS: 5 (0.1%)
+  4  HRS: 4 (0.1%)
+  5 HRS: 3 (0.0%)
+  9 HRS: 2 (0.0%)
+  8 HRS: 2 (0.0%)
+  6 HRS: 2 (0.0%)
+  ... and 29 more unique values
+
+--- Access ---
+  LEFT AVF: 2728 (41.3%)
+  LEFT P/C: 1025 (15.5%)
+  RIGHT P/C: 839 (12.7%)
+  RIGHT AVF: 306 (4.6%)
+  LEFT F/C: 239 (3.6%)
+  LEFT IJV PARMACATH: 77 (1.2%)
+  LEFT IVJ: 41 (0.6%)
+  RIGHT I/J: 41 (0.6%)
+  RIGHT F/C: 10 (0.2%)
+  LEFT AVJ: 3 (0.0%)
+  ... and 32 more unique values
+
+--- Time of Start ---
+  07:30:00: 287 (4.3%)
+  7:30: 185 (2.8%)
+  07:20:00: 148 (2.2%)
+  08:00:00: 146 (2.2%)
+  7:20: 142 (2.1%)
+  07:40:00: 119 (1.8%)
+  12:30: 108 (1.6%)
+  8:00: 96 (1.5%)
+  07:00:00: 95 (1.4%)
+  1:00: 90 (1.4%)
+  ... and 218 more unique values
+
+--- Started by ---
+  REETA: 863 (13.1%)
+  FIRROZ: 727 (11.0%)
+  VINAY: 514 (7.8%)
+  SAHIL: 394 (6.0%)
+  JYOTI: 375 (5.7%)
+  SHARUKH: 367 (5.6%)
+  MANISH: 303 (4.6%)
+  RAJESH: 276 (4.2%)
+  SATINDER: 271 (4.1%)
+  VIKESH: 214 (3.2%)
+  ... and 55 more unique values
+
+--- Time of Closing ---
+  11:30:00: 219 (3.3%)
+  11:30: 199 (3.0%)
+  11:00:00: 188 (2.8%)
+  11:20: 133 (2.0%)
+  12:00:00: 126 (1.9%)
+  11:40:00: 106 (1.6%)
+  4:30: 102 (1.5%)
+  11:20:00: 100 (1.5%)
+  11:00: 92 (1.4%)
+  04:30:00: 91 (1.4%)
+  ... and 231 more unique values
+
+--- Closed by ---
+  REETA: 630 (9.5%)
+  SAHIL: 608 (9.2%)
+  FIRROZ: 517 (7.8%)
+  SATINDER: 451 (6.8%)
+  SHARUKH: 391 (5.9%)
+  VINAY: 356 (5.4%)
+  RAJESH: 327 (4.9%)
+  JYOTI: 307 (4.6%)
+  MANISH: 255 (3.9%)
+  VIKESH: 235 (3.6%)
+  ... and 62 more unique values
+
+--- Level of Consciousness ---
+  Conscious Oriented: 5346 (80.9%)
+
+--- BP (mmHg) ---
+  150/80: 388 (5.9%)
+  140/80: 386 (5.8%)
+  160/80: 363 (5.5%)
+  130/80: 162 (2.5%)
+  160/90: 150 (2.3%)
+  140/70: 110 (1.7%)
+  150/90: 99 (1.5%)
+  130/70: 99 (1.5%)
+  170/80: 90 (1.4%)
+  170/90: 73 (1.1%)
+  ... and 1671 more unique values
+
+--- Temp (°F) ---
+  AFIBRILE: 1331 (20.1%)
+  98.6: 1179 (17.8%)
+  98.4: 629 (9.5%)
+  98.2: 371 (5.6%)
+  98: 327 (4.9%)
+  97.6: 271 (4.1%)
+  98.5: 205 (3.1%)
+  98.1: 172 (2.6%)
+  97.5: 155 (2.3%)
+  98.3: 115 (1.7%)
+  ... and 58 more unique values
+
+--- Fluid Removed ---
+  3: 266 (4.0%)
+  2.5: 249 (3.8%)
+  2: 232 (3.5%)
+  2.6: 219 (3.3%)
+  2.2: 217 (3.3%)
+  2.8: 204 (3.1%)
+  2.4: 199 (3.0%)
+  2.9: 195 (3.0%)
+  3.2: 190 (2.9%)
+  2.3: 190 (2.9%)
+  ... and 59 more unique values
+
+--- Pain Score ---
+  0 (No Hurt): 5234 (79.2%)
+  3 (No Hurt): 7 (0.1%)
+  1 (No Hurt): 6 (0.1%)
+  2 (No Hurt): 6 (0.1%)
+  4 (No Hurt): 4 (0.1%)
+  6 (No Hurt): 3 (0.0%)
+  5 (No Hurt): 3 (0.0%)
+  10 (No Hurt): 2 (0.0%)
+  7 (No Hurt): 2 (0.0%)
+  8 (No Hurt): 2 (0.0%)
+  ... and 41 more unique values
+
+--- Level of Consciousness 2 ---
+  Conscious oriented: 5342 (80.9%)
+  disoriented: 2 (0.0%)
+
+--- Psychological Assessment ---
+  Depressed: 2 (0.0%)
+  Anxious: 2 (0.0%)
+
+--- Ability to Perform ADLs ---
+  Independent: 3902 (59.1%)
+  Needs Assistance: 880 (13.3%)
+  Dependent: 499 (7.6%)
+  Need assistance: 32 (0.5%)
+  need assistance: 31 (0.5%)
+
+--- Nutritional Assessment ---
+  Average: 5336 (80.8%)
+  Poor: 7 (0.1%)
+  Obese: 1 (0.0%)
+
+--- Any Blood Product Transfused?  ---
+  No: 5013 (75.9%)
+  NO: 331 (5.0%)
+
+--- Volume of Transfusion ---
+  NO: 5332 (80.7%)
+  NNO: 3 (0.0%)
+  No: 2 (0.0%)
+  N0: 1 (0.0%)
+  3.6: 1 (0.0%)
+  NOO: 1 (0.0%)
+  NO : 1 (0.0%)
+   NO: 1 (0.0%)
+  0.2: 1 (0.0%)
+
+--- Vascular Access Dressing ---
+  Done: 5344 (80.9%)
+
+--- Time ---
+  NO: 5142 (77.8%)
+  1:00: 131 (2.0%)
+  Abc: 15 (0.2%)
+  1:30: 12 (0.2%)
+  1:15: 5 (0.1%)
+  GOOD: 5 (0.1%)
+  8:00: 5 (0.1%)
+  1:00 PM: 4 (0.1%)
+  1:00 : 2 (0.0%)
+  I:00: 2 (0.0%)
+  ... and 17 more unique values
+
+--- Given by ---
+  NO: 5109 (77.3%)
+  BABLI: 37 (0.6%)
+  REETA: 30 (0.5%)
+  MANISH: 15 (0.2%)
+  SAHIL: 14 (0.2%)
+  Abc: 13 (0.2%)
+  RACHANA: 12 (0.2%)
+  MEHAK: 11 (0.2%)
+  ABHILASHA: 10 (0.2%)
+  KALASH: 10 (0.2%)
+  ... and 21 more unique values
+
+--- Taken by ---
+  NO: 5128 (77.6%)
+  RACHANA: 23 (0.3%)
+  JYOTI: 22 (0.3%)
+  ABHILASHA: 18 (0.3%)
+  REETA: 18 (0.3%)
+  Abc: 18 (0.3%)
+  MEHAK: 15 (0.2%)
+  KALASH: 14 (0.2%)
+  SATINDER: 11 (0.2%)
+  RAJESH: 9 (0.1%)
+  ... and 24 more unique values
+
+--- Medication ---
+  INJ. LACARNIT: 724 (11.0%)
+  INJ. EIDO: 487 (7.4%)
+  INJ. QRON: 171 (2.6%)
+  INJ. DEXTROSE: 144 (2.2%)
+  TAB ARKAMIN: 91 (1.4%)
+  1 TAB ARKANIIN: 86 (1.3%)
+  INJ. JUVOBIN: 80 (1.2%)
+  INJ. PANTOP: 64 (1.0%)
+  INJ. ZYROP: 41 (0.6%)
+  INJ. RENOCRIT: 38 (0.6%)
+  ... and 163 more unique values
+
+--- Dose ---
+  5 ML: 828 (12.5%)
+  2 ML: 530 (8.0%)
+  0.1 MG: 187 (2.8%)
+  40 MG: 174 (2.6%)
+  100 ML: 123 (1.9%)
+  250 ML: 65 (1.0%)
+  25 %: 59 (0.9%)
+  100 MG: 42 (0.6%)
+  5  ML: 41 (0.6%)
+  10000 IU: 35 (0.5%)
+  ... and 75 more unique values
+
+--- Route ---
+  I.V: 1926 (29.2%)
+  S/C: 324 (4.9%)
+  P/O: 82 (1.2%)
+  I/V: 62 (0.9%)
+  ORAL: 49 (0.7%)
+  O/R: 6 (0.1%)
+  10000 IU: 6 (0.1%)
+  IV: 6 (0.1%)
+  S/O: 2 (0.0%)
+  PO: 2 (0.0%)
+  ... and 2 more unique values
+
+--- Time 2 ---
+  11:00:00: 111 (1.7%)
+  04:00:00: 100 (1.5%)
+  10:30:00: 75 (1.1%)
+  10:00:00: 71 (1.1%)
+  08:00:00: 68 (1.0%)
+  11:30:00: 63 (1.0%)
+  11:20:00: 53 (0.8%)
+  04:30:00: 51 (0.8%)
+  03:30:00: 39 (0.6%)
+  05:00:00: 39 (0.6%)
+  ... and 329 more unique values
+
+--- Nurse Signature ---
+  MEHAK: 331 (5.0%)
+  ABHILASHA: 249 (3.8%)
+  BABLI: 225 (3.4%)
+  RACHANA: 224 (3.4%)
+  REETA: 214 (3.2%)
+  JIYA: 202 (3.1%)
+  RUMPA: 158 (2.4%)
+  KALASH: 148 (2.2%)
+  SAHIL: 131 (2.0%)
+  JYOTI: 110 (1.7%)
+  ... and 39 more unique values
+
+--- Doctor Signature ---
+  DR. PANKAJ: 2495 (37.8%)
+  DR. PANKAJ : 116 (1.8%)
+  DR.PANKAJ: 31 (0.5%)
+  DR. PANAKJ: 6 (0.1%)
+  DR . PANKAJ: 2 (0.0%)
+  DR. Pankaj: 1 (0.0%)
+  DR.. PANKAJ: 1 (0.0%)
+  DR, PANKAJ: 1 (0.0%)
+
+--- Reaction (if any) ---
+  NO: 2652 (40.1%)
+   NO: 1 (0.0%)
+
+--- Column 67 ---
+  Stable: 5238 (79.3%)
+  Unstable: 5 (0.1%)
+
+--- Please upload your medical report or any relevant documents. ---
+  https://mega.nz/file/GMkR0bZI#-mv6_OnWGt94G8p7Ngn8mKGjKaK5RXhppuvfl_9Dwqg: 6 (0.1%)
+  https://mega.nz/file/iEs3UD7I#t7gUtAvM8xmEk0AJeSldvB6gY45AJPig2kTrtPzEW6Q: 6 (0.1%)
+  https://mega.nz/file/TdkhUDRL#C5cmIPkM5eRYilaSEN2_c1OzDu2zLX_KiJkvTUvt5xw: 5 (0.1%)
+  https://mega.nz/file/yEdCmT4K#5ZMYAt5Ln6VTT96R72epl41RVuS-cm3NPOUu2H5uEOQ: 4 (0.1%)
+  https://mega.nz/file/jd102BYK#oO9qI9Sy1jeYlstX0BFamrNV0BgKo3fHgVuj5aSLttI: 4 (0.1%)
+  https://mega.nz/file/vYUV1RjT#-B6-L63z8ifh47w4lgCEBMs749SYAf3vJmlDAM39hA0: 4 (0.1%)
+  https://mega.nz/file/mUUEnYgK#L3knCPTcayNi_anHI9tDGPGyIUT8H2V6Oqp6M48vMMQ: 4 (0.1%)
+  https://mega.nz/file/bRdXGBzJ#BX7cF-iLieQASvsJw-MfTIEzyxu9Sw9xB1SQ1Qszr-w: 4 (0.1%)
+  https://mega.nz/file/uA0BxDwJ#hF6Ls7Zlq_v1TaCcjOXCS7SQfKFCw2kmlOIKp9Rtsik: 4 (0.1%)
+  https://mega.nz/file/2REGWaza#Jd_5L2CbVz-ypKMHMxr8CWigXW0LcZ5oUQFI36ufYRA: 3 (0.0%)
+  ... and 4719 more unique values
+
+--- HBsAg [+/-] ---
+  Negative: 5337 (80.8%)
+  Positive: 6 (0.1%)
+
+--- HCV [+/-] ---
+  Negative: 5079 (76.9%)
+  Positive: 149 (2.3%)
+  POSITIVE: 115 (1.7%)
+
+--- HIV [+/-] ---
+  Negative: 5338 (80.8%)
+  Positive: 4 (0.1%)
+  Not Done: 1 (0.0%)
+
+--- Blood Flow (ml/min) 2 ---
+  300: 2888 (43.7%)
+  250: 959 (14.5%)
+  270: 362 (5.5%)
+  280: 354 (5.4%)
+  260: 164 (2.5%)
+  200: 116 (1.8%)
+  320: 99 (1.5%)
+  220: 65 (1.0%)
+  290: 63 (1.0%)
+  230: 32 (0.5%)
+  ... and 29 more unique values
+
+--- Blood Group ---
+  B+: 1587 (24.0%)
+  Not Done: 1392 (21.1%)
+  O+: 979 (14.8%)
+  A+: 912 (13.8%)
+  AB+: 243 (3.7%)
+  AB-: 44 (0.7%)
+  O Negative: 43 (0.7%)
+  O-: 42 (0.6%)
+  A-: 3 (0.0%)
+
+--- YES ---
+  YES: 2626 (39.7%)
+  No: 2443 (37.0%)
+  Yes: 205 (3.1%)
+  NO: 51 (0.8%)
+
+--- QRON ---
+  GOOD: 5251 (79.5%)
+  GOOD : 3 (0.0%)
+   GOOD: 3 (0.0%)
+
+--- 100 MG ---
+  GOOD: 5250 (79.5%)
+   GOOD: 5 (0.1%)
+  V: 1 (0.0%)
+  GOOD : 1 (0.0%)
+
+--- Unnamed: 84 ---
+  /: 1 (0.0%)
+
+--- Unnamed: 86 ---
+  /: 1 (0.0%)
+
+================================================================================
+CORRELATION MATRIX (top numeric columns)
+================================================================================
+
+Top 20 correlations (by absolute value):
+  UHID No. <-> Dialyzer No.: 0.0105
+  UHID No. <-> Na+: nan
+  UHID No. <-> Dialysate Flow (ml/min): nan
+  UHID No. <-> SpO2 (%): 0.0158
+  UHID No. <-> K+: nan
+  Heparin Bolus (IU) <-> Dialyzer No.: 0.0098
+  Heparin Bolus (IU) <-> Na+: nan
+  Heparin Bolus (IU) <-> Dialysate Flow (ml/min): nan
+  Heparin Bolus (IU) <-> K+: nan
+  Heparin Bolus (IU) <-> Bicarb: 0.1114
+  Heparin Infusion (IU/hr) <-> Na+: nan
+  Heparin Infusion (IU/hr) <-> Dialysate Flow (ml/min): nan
+  Heparin Infusion (IU/hr) <-> SpO2 (%): 0.0060
+  Heparin Infusion (IU/hr) <-> K+: nan
+  Total Heparin (IU) <-> Dialyzer No.: 0.0043
+  Heparin Infusion (IU/hr) <-> Bicarb: -0.0026
+  Total Heparin (IU) <-> Na+: nan
+  Total Heparin (IU) <-> Dialysate Flow (ml/min): nan
+  Total Heparin (IU) <-> SpO2 (%): -0.0083
+  Heparin Infusion (IU/hr) <-> HR (min): 0.0070
+
+================================================================================
+DATA QUALITY NOTES
+================================================================================
+  Duplicate rows: 1265
+  Columns with constant/empty values: ['OPD/IPD', 'Patient Serology Status', 'Dialysate (mmol/L)', 'Na+', 'Dialysate Flow (ml/min)', 'Column 39', 'Level of Consciousness', 'Blood Flow (ml/min)', 'Column 82', 'Dialysate Flow (ml/min) 2', 'Site Status', 'Vascular Access Dressing', 'K+', 'I.V', 'Unnamed: 82', 'Unnamed: 83', 'Unnamed: 84', 'Unnamed: 85', 'Unnamed: 86']
+  Columns with >80% missing: ['Patient Serology Status', 'Column 39', 'Blood Flow (ml/min)', 'Column 82', 'Dialysate Flow (ml/min) 2', 'Psychological Assessment', 'Site Status', 'I.V', 'Unnamed: 82', 'Unnamed: 83', 'Unnamed: 84', 'Unnamed: 85', 'Unnamed: 86']
