@@ -106,8 +106,12 @@ if st.button("Calculate Target UF", type="primary", use_container_width=True):
             
         # Calculate and Display UF Rate
         uf_rate = calculate_uf_rate(pre_weight, dry_weight, treatment_time)
+
         st.metric(label="Calculated UF Rate (Current Parameters)", value=f"{uf_rate:.2f} mL/hr/kg")
-        
+
+        if uf_rate > 13:
+            st.warning(f"⚠️ **Safety Cap Applied:** please stick the flow rate to < 13 mL/hr/kg ")
+
         # Display raw weight difference for clinician context
         st.caption(f"Raw Weight Difference: {result['weight_difference']:.2f} kg")
 
