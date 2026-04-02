@@ -14,6 +14,10 @@ def calculate_uf_rate(pre_weight_kg: float, dry_weight_kg: float, time_hr: float
     Returns:
         float: Calculated UF Rate in mL/hr/kg.
     """
+
+    if pre_weight_kg<=dry_weight_kg:
+        return 0.0
+        
     if time_hr <= 0 or dry_weight_kg <= 0:
         return 0.0
         
