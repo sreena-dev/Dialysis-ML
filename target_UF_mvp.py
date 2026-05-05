@@ -179,7 +179,7 @@ def run_app():
     st.sidebar.header("Configuration")
     
     if "model" not in st.session_state:
-        st.info("Pulling live data from Google Sheets and training the model...")
+        # st.info("Pulling live data from Google Sheets and training the model...")
         url = "https://docs.google.com/spreadsheets/d/1_7IwgfcIZ_YOtpJiS-xMRdDmOPlnC3Nz1w3kogyPdCM/export?format=csv"
         
         try:
